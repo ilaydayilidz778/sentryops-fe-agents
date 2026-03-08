@@ -9,8 +9,9 @@ import ExecutionDetail from "../components/execution-detail";
 import MemoryBrowser from "../components/memory-browser";
 import A2AMessageLog from "../components/a2a-message-log";
 import OrchestrationDiagram from "../components/orchestration-diagram";
+import DataFlowDiagram from "../components/data-flow-diagram";
 
-const tabs = ["Registry", "Orchestration", "Executions", "Memories", "A2A Messages"] as const;
+const tabs = ["Registry", "Orchestration", "Data Flow", "Executions", "Memories", "A2A Messages"] as const;
 type Tab = (typeof tabs)[number];
 
 export default function AgentsPage() {
@@ -51,6 +52,8 @@ export default function AgentsPage() {
         {activeTab === "Registry" && <AgentList agents={agents} />}
 
         {activeTab === "Orchestration" && <OrchestrationDiagram />}
+
+        {activeTab === "Data Flow" && <DataFlowDiagram />}
 
         {activeTab === "Executions" && (
           <div className="space-y-4">
