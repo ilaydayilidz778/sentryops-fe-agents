@@ -8,8 +8,9 @@ import ExecutionTimeline from "../components/execution-timeline";
 import ExecutionDetail from "../components/execution-detail";
 import MemoryBrowser from "../components/memory-browser";
 import A2AMessageLog from "../components/a2a-message-log";
+import OrchestrationDiagram from "../components/orchestration-diagram";
 
-const tabs = ["Registry", "Executions", "Memories", "A2A Messages"] as const;
+const tabs = ["Registry", "Orchestration", "Executions", "Memories", "A2A Messages"] as const;
 type Tab = (typeof tabs)[number];
 
 export default function AgentsPage() {
@@ -48,6 +49,8 @@ export default function AgentsPage() {
         </div>
 
         {activeTab === "Registry" && <AgentList agents={agents} />}
+
+        {activeTab === "Orchestration" && <OrchestrationDiagram />}
 
         {activeTab === "Executions" && (
           <div className="space-y-4">
